@@ -20,7 +20,7 @@
 
 \title{\Large{INFO8006: Project 1 - Report}}
 \vspace{1cm}
-\author{\small{\bf Mr Pacman - s111111} \\ \small{\bf Miss Pacman - s222222}}
+\author{\small{\bf Olivier Joris - s182113} \\ \small{\bf Maxime Goffart - s180521}}
 
 \maketitle
 
@@ -29,7 +29,16 @@
 \section{Problem statement}
 
 \begin{enumerate}[label=\alph*.]
-    \item
+    \item 
+       \begin{itemize}
+            \item[\textbullet] The set of possible states is defined by a matrix representing the map in which for each element there is a boolean value
+                               indicating the presence of a food dot and another indicating the presence of Pac-Man in this cell of the map.\\
+                               The initial state is set by the layout.
+            \item[\textbullet] At any moment, Pac-Man can move up, down, right or left as long as he does not go through a wall (illegal action).
+            \item[\textbullet] When Pac-Man performs one of the previous legal actions, some elements of the previously defined matrix are then updated according to the current state of the game.
+            \item[\textbullet] The goal is reached when the elements of the matrix indicating the presence of a food dots are all at the 'False' value : there are no food dots on the map.
+            \item[\textbullet] The step cost can be defined as follows : each move of Pac-Man to a cell without a food dot costs 10 and each move to a cell with a food dot costs 1.
+       \end{itemize}
 \end{enumerate}
 
 \section{Implementation}
