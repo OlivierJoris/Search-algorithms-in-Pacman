@@ -29,8 +29,7 @@ def key(state):
     -------
     - A hashable key object that uniquely identifies a Pacman game state.
     """
-    return state.getPacmanPosition()
-
+    return (state.getPacmanPosition(), state.getFood())
 
 class PacmanAgent(Agent):
     """
