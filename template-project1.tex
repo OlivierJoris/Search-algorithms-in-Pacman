@@ -12,6 +12,7 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{hyperref}
+\usepackage[margin=3cm]{geometry}
 
 \begin{document}
 
@@ -20,7 +21,7 @@
 
 \title{\Large{INFO8006: Project 1 - Report}}
 \vspace{1cm}
-\author{\small{\bf Olivier Joris - s182113} \\ \small{\bf Maxime Goffart - s180521}}
+\author{\small{\bf Maxime Goffart - s180521} \\ \small{\bf Olivier Joris - s182113}}
 
 \maketitle
 
@@ -28,33 +29,31 @@
 
 \section{Problem statement}
 
-\begin{enumerate}[label=\alph*.]
-    \item 
-       \begin{itemize}
-            \item[\textbullet] The set of possible states is defined by a matrix representing the map in which for each element there is a boolean value
-                               indicating the presence of a food dot and another indicating the presence of Pac-Man in this cell of the map.\\
-                               The initial state is set by the layout.
-            \item[\textbullet] At any moment, Pac-Man can move up, down, right or left as long as he does not go through a wall (illegal action).
-            \item[\textbullet] When Pac-Man performs one of the previous legal actions, some elements of the previously defined matrix are then updated according to the current state of the game.
-            \item[\textbullet] The goal is reached when the elements of the matrix indicating the presence of a food dots are all at the 'False' value : there are no food dots on the map.
-            \item[\textbullet] The step cost can be defined as follows : each move of Pac-Man to a cell without a food dot costs 10 and each move to a cell with a food dot costs 1.
-       \end{itemize}
+\begin{enumerate}[label=\alph*.,leftmargin=1.35em]
+    \item
+    	\begin{itemize}
+    		\item The initial state is given by the layout of the maze which gives the initial position of Pacman and the initials positions of all the food dots. The possible states are a combination of Pacman position and the positions of the remaining food dots.
+    		\item The legal actions are going north, going south, going west, and going east.
+    		\item The action taken will have the effect to change Pacman position in the maze (if the action is legal). If the cell on which Pacman arrives contains a food dot, the food dot is eaten and removed from the maze.
+    		\item The goal is reached if all the food dots have been eaten.
+    		\item We can use $12 + (-1 * \#\text{number of eaten food}) + (-10 \text{ if \#winning end})$ as a step cost.
+    	\end{itemize}
 \end{enumerate}
 
 \section{Implementation}
 
-\begin{enumerate}[label=\alph*.]
+\begin{enumerate}[label=\alph*.,leftmargin=1.35em]
     \item
-    \item \textbf{LEAVE EMPTY}
+    \item \textbf{{\it Leave empty.}}
     \item
     \item
-    \item \textbf{LEAVE EMPTY}
+    \item \textbf{{\it Leave empty.}}
     \item
 \end{enumerate}
 
 \section{Experiment 1}
 
-\begin{enumerate}[label=\alph*.]
+\begin{enumerate}[label=\alph*.,leftmargin=1.35em]
     \item
     \item
     \item
@@ -63,7 +62,7 @@
 
 \section{Experiment 2}
 
-\begin{enumerate}[label=\alph*.]
+\begin{enumerate}[label=\alph*.,leftmargin=1.35em]
     \item
     \item
     \item
