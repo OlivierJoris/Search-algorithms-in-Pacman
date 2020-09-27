@@ -33,10 +33,10 @@
     \item
     	\begin{itemize}
     		\item The initial state is given by the layout of the maze which gives the initial position of Pacman and the initials positions of all the food dots. The possible states are a combination of Pacman position and the positions of the remaining food dots.
-    		\item The legal actions are going north, going south, going west, and going east.
+    		\item The legal actions are going north, going south, going west, and going east as long as Pacman does not go through a wall.
     		\item The action taken will have the effect to change Pacman position in the maze (if the action is legal). If the cell on which Pacman arrives contains a food dot, the food dot is eaten and removed from the maze.
     		\item The goal is reached if all the food dots have been eaten.
-    		\item We can use $12 + (-1 * \#\text{number of eaten food}) + (-10 \text{ if \#winning end})$ as a step cost.
+    		\item The step cost can be defined as follows: each move of Pacman to a cell without a food dot costs 10 and each move to a cell with a food dot costs 1.
     	\end{itemize}
 \end{enumerate}
 
