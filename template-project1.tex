@@ -43,7 +43,7 @@
 \section{Implementation}
 
 \begin{enumerate}[label=\alph*.,leftmargin=1.35em]
-    \item The error lies in the \textit{key} function and is the fact that it identifies a game state by taking only the Pacman position. However, to identify the state of the game, the position of the food dots is also needed. Indeed, if Pacman has 2 positions that are the same in two different game states, he may have eaten food dots in the meantime: the game state is then no longer the same.\\
+    \item The error lies in the \textit{key} function and is the fact that it identifies a game state by taking only the Pacman position. However, to identify the state of the game, the position of the food dots is also needed. Indeed, if Pacman has 2 positions that are the same, he may have eaten food dots in the meantime: the game state is then no longer the same.\\
           This error can be corrected by returning a tuple containing both the current position of Pacman and the position of the food dots in the \textit{key} function.  
     \item \textbf{{\it Leave empty.}}
     \item

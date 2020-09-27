@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1601219325 "/home/olivier/Documents/Projets/INFO8006/template-project1.tex" "/home/olivier/Documents/Projets/INFO8006/template-project1.pdf" "template-project1" 1601219325
+["pdflatex"] 1601219665 "/home/olivier/Documents/Projets/INFO8006/template-project1.tex" "/home/olivier/Documents/Projets/INFO8006/template-project1.pdf" "template-project1" 1601219665
   "/etc/texmf/web2c/texmf.cnf" 1600535654 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/olivier/Documents/Projets/INFO8006/template-project1.aux" 1601219325 1009 797aeefc3bfc6059856e3f7b3a620f5f ""
-  "/home/olivier/Documents/Projets/INFO8006/template-project1.tex" 1601219324 2745 6b0a2cf1e7e4a6728fc652745d05c905 ""
+  "/home/olivier/Documents/Projets/INFO8006/template-project1.aux" 1601219665 1009 797aeefc3bfc6059856e3f7b3a620f5f ""
+  "/home/olivier/Documents/Projets/INFO8006/template-project1.tex" 1601219658 2716 296115f4e73f2e0a59b2ccae3fe714dc ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1480098698 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm" 1480098698 1120 200be8b775682cdf80acad4be5ef57e4 ""
@@ -91,13 +91,13 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1600535689 2700761 ac0584cc9514ab21918550a6948c4ee2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1600535709 4129607 b18312a3211f4007a234b128f48816ab ""
-  "template-project1.aux" 1601219325 1009 797aeefc3bfc6059856e3f7b3a620f5f ""
-  "template-project1.out" 1601219325 195 c79bb563a50a8e80d1fc1bee63f2498c ""
-  "template-project1.tex" 1601219324 2745 6b0a2cf1e7e4a6728fc652745d05c905 ""
+  "template-project1.aux" 1601219665 1009 797aeefc3bfc6059856e3f7b3a620f5f ""
+  "template-project1.out" 1601219665 195 c79bb563a50a8e80d1fc1bee63f2498c ""
+  "template-project1.tex" 1601219658 2716 296115f4e73f2e0a59b2ccae3fe714dc ""
   (generated)
-  "template-project1.out"
   "template-project1.log"
   "template-project1.pdf"
-  "/home/olivier/Documents/Projets/INFO8006/template-project1.pdf"
   "/home/olivier/Documents/Projets/INFO8006/template-project1.log"
+  "template-project1.out"
+  "/home/olivier/Documents/Projets/INFO8006/template-project1.pdf"
   "template-project1.aux"
