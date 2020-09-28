@@ -9,12 +9,12 @@ def key_game_state(state):
         Given a pacman game state, returns a key that uniquely identifies a
         pacman game state.
 
-        Arguments:
+        Argument:
         ----------
         - `state`: the current state of the game.
 
-        Return:
-        -------
+        Returns:
+        --------
         - A hashable key that uniquely identifies a pacman game state.
         """
 
@@ -22,15 +22,16 @@ def key_game_state(state):
 
 def backward_cost(state, nextState):
         """
-        Given two pacman game states, returns the cost between the states.
+        Given two pacman game states, returns the cost between `state`
+        and `nextState`.
 
         Arguments:
         ----------
         - `state`: the current state of the game.
         - `nextState`: the next state of the game we are considering.
 
-        Return:
-        -------
+        Returns:
+        --------
         - The cost between `state` and `nextState`.
           1 if Pacman goes to a cell with a food dot.
           10 if Pacman goes to a cell without a food dot.
@@ -43,12 +44,12 @@ def heuristic(state):
         Given a pacman game state, returns the heuristic value for the
         given state.
 
-        Arguments:
-        ----------
+        Argument:
+        ---------
         - `state`: the current state of the game.
 
-        Return:
-        -------
+        Returns:
+        --------
         - The Manhattan distance between pacman position in the given game
           state and the fahrest food dot.
         """
@@ -72,8 +73,8 @@ def heuristic(state):
 class PacmanAgent(Agent):
     def __init__(self, args):
         """
-        Arguments:
-        ----------
+        Argument:
+        ---------
         - `args`: Namespace of arguments from command-line prompt.
         """
         self.args = args
@@ -83,13 +84,13 @@ class PacmanAgent(Agent):
         """
         Given a pacman game state, returns a legal move.
 
-        Arguments:
-        ----------
+        Argument:
+        ---------
         - `state`: the current game state. See FAQ and class
                    `pacman.GameState`.
 
-        Return:
-        -------
+        Returns:
+        --------
         - A legal move as defined in `game.Directions`.
         """
 
@@ -106,8 +107,8 @@ class PacmanAgent(Agent):
         Given a pacman game state, returns a sequence of legal moves
         to achieve the goal.
 
-        Arguments:
-        ----------
+        Argument:
+        ---------
         - `state`: the current game state.
 
         Return:
@@ -120,6 +121,7 @@ class PacmanAgent(Agent):
         closed = set()
 
         fringe.push((state, path, 0), 0)
+        # item = (state, path, g(state))
 
         while True:
             if fringe.isEmpty():
