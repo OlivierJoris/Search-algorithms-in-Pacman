@@ -68,7 +68,6 @@ def heuristic(state):
                         max_distance = distance
 
         return max_distance
-        #return state.getNumFood() # other heuristic
 
 
 class PacmanAgent(Agent):
@@ -97,7 +96,6 @@ class PacmanAgent(Agent):
 
         if not self.moves:
             self.moves = self.astar(state)
-            print(self.moves)
 
         try:
             return self.moves.pop(0)
