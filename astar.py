@@ -68,6 +68,7 @@ def heuristic(state):
                         max_distance = distance
 
         return max_distance
+        #return state.getNumFood() # other heuristic
 
 
 class PacmanAgent(Agent):
@@ -96,6 +97,7 @@ class PacmanAgent(Agent):
 
         if not self.moves:
             self.moves = self.astar(state)
+            print(self.moves)
 
         try:
             return self.moves.pop(0)
@@ -138,8 +140,9 @@ class PacmanAgent(Agent):
                 closed.add(key_current_state)
 
                 for next_state, action in item[0].generatePacmanSuccessors():
-                    cost = item[2] + backward_cost(item[0], next_state)
-                    eval_function = cost + heuristic(next_state)
-                    fringe.update((next_state, item[1] + [action], cost), eval_function)
+                    if key_game_state(next_state) not in closed:
+                        cost = item[2] + backward_cost(item[0], next_state)
+                        eval_function = cost + heuristic(next_state)
+                        fringe.update((next_state, item[1] + [action], cost), eval_function)
             
         return path
