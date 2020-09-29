@@ -2,7 +2,7 @@
 
 from pacman_module.game import Agent
 from pacman_module.pacman import Directions
-from pacman_module.util import PriorityQueue
+from pacman_module.util import Queue
 
 def key_game_state(state):
         """
@@ -67,30 +67,27 @@ class PacmanAgent(Agent):
         """
 
         path = []
-        fringe = PriorityQueue()
-        closed = set()
 
-        fringe.push((state, path, 0), 0)
-        # item = (state, path, g(state))
+        fringe = Queue()
+        fringe.push((state, path))
+
+        closed = set()
 
         while True:
             if fringe.isEmpty():
-                return [] # error
-            
-            item = fringe.pop()[1]
+                return []  # failure
 
-            if item[0].isWin():
-                return item[1] # path
+            current, path = fringe.pop()
 
-            key_current_state = key_game_state(item[0])
+            if current.isWin():
+                return path
 
-            if key_current_state not in closed:
-                closed.add(key_current_state)
+            current_key = key_game_state(current)
 
-                for next_state, action in item[0].generatePacmanSuccessors():
-                    if key_game_state(next_state) not in closed:
-                        cost = item[2] + len(item[1])
-                        eval_function = cost 
-                        fringe.update((next_state, item[1] + [action], cost), eval_function)
-            
+            if current_key not in closed:
+                closed.add(current_key)
+
+                for next_state, action in current.generatePacmanSuccessors():
+                    fringe.push((next_state, path + [action]))
+
         return path
