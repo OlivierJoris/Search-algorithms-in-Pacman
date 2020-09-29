@@ -20,24 +20,24 @@ def key_game_state(state):
 
         return (state.getPacmanPosition(), state.getFood())
 
-def backward_cost(state, nextState):
+def step_cost(state, next_state):
         """
-        Given two pacman game states, returns the cost between `state`
-        and `nextState`.
+        Given two pacman game states, returns the step cost between `state`
+        and `next_state`.
 
         Arguments:
         ----------
         - `state`: the current state of the game.
-        - `nextState`: the next state of the game we are considering.
+        - `next_state`: the next state of the game.
 
         Returns:
         --------
-        - The cost between `state` and `nextState`.
+        - The step cost between `state` and `next_state`.
           1 if Pacman goes to a cell with a food dot.
           10 if Pacman goes to a cell without a food dot.
         """
 
-        return 1 if nextState.getNumFood() < state.getNumFood() else 10
+        return 1 if next_state.getNumFood() < state.getNumFood() else 10
 
 def heuristic(state):
         """
@@ -50,9 +50,12 @@ def heuristic(state):
 
         Returns:
         --------
-        - The Manhattan distance between pacman position in the given game
-          state and the fahrest food dot.
+        - The Manhattan distance between pacman position and the fahrest
+          food dot in the maze.
         """
+
+        if state.getNumFood() == 0: # goal node
+            return 0
 
         pacman_position = state.getPacmanPosition()
         food_matrix = state.getFood()
@@ -139,7 +142,7 @@ class PacmanAgent(Agent):
 
                 for next_state, action in item[0].generatePacmanSuccessors():
                     if key_game_state(next_state) not in closed:
-                        cost = item[2] + backward_cost(item[0], next_state)
+                        cost = item[2] + step_cost(item[0], next_state)
                         eval_function = cost + heuristic(next_state)
                         fringe.update((next_state, item[1] + [action], cost), eval_function)
             
