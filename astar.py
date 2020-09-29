@@ -130,7 +130,7 @@ class PacmanAgent(Agent):
             if fringe.isEmpty():
                 return [] # error
             
-            priority, item = fringe.pop()
+            item = fringe.pop()[1]
 
             if item[0].isWin():
                 return item[1] # path
