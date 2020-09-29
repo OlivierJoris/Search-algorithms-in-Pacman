@@ -20,20 +20,6 @@ def key_game_state(state):
 
         return (state.getPacmanPosition(), state.getFood())
 
-def depth(PacmanAgent):
-        """
-        Return the actual depth of the search tree.
-
-        Arguments:
-        ----------
-
-        Returns:
-        --------
-        - The actual depth of the search tree.
-        """
-        
-        return len(PacmanAgent.moves)
-
 class PacmanAgent(Agent):
     def __init__(self, args):
         """
@@ -103,7 +89,7 @@ class PacmanAgent(Agent):
 
                 for next_state, action in item[0].generatePacmanSuccessors():
                     if key_game_state(next_state) not in closed:
-                        cost = item[2] + depth(self)
+                        cost = item[2] + len(item[1])
                         eval_function = cost 
                         fringe.update((next_state, item[1] + [action], cost), eval_function)
             
