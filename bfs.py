@@ -66,6 +66,7 @@ class PacmanAgent(Agent):
         closed = set()
 
         fringe.push((state, path, 0), 0)
+        # item = (state, path, g(state))
 
         while True:
             if fringe.isEmpty():
@@ -83,7 +84,7 @@ class PacmanAgent(Agent):
 
                 for next_state, action in state.generatePacmanSuccessors():
                     if key_game_state(next_state) not in closed:
-                        new_depth = len(path + [action])
+                        new_depth = depth + 1
                         fringe.update((next_state, path + [action], new_depth), new_depth)
             
         return path
