@@ -14,6 +14,8 @@
 \usepackage{hyperref}
 \usepackage[margin=3cm]{geometry}
 
+\usepackage{float}
+
 \begin{document}
 
 
@@ -59,8 +61,42 @@
 
 \section{Experiment 1}
 
+\begin{enumerate}[label=\alph*.,leftmargin=1.35em]
+    \item Plot using logarithmic values:\\
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.5]{q3_plot.png} 
+        \caption{Comparison of A$^*$ algorithm with different heuristics in the middle layout.}
+    \end{figure}
+    \item The returned scores are the same with a value of 565. Using our heuristic function, the algorithm expanded 11674 nodes. While using $h(n)=0$, the algorithm expanded 12560 nodes.
+    \item The version using $h(n) = 0$ expands more nodes because using $h(n) = 0$ is equivalent of using an uninformed search algorithm which doesn't take into account the possible location of a goal node.
+    \item A$^*$ with $h(n) = 0$ for all $n$ corresponds to the uniformed-cost search algorithm.
+\end{enumerate}
+
 \section{Experiment 2}
+
+\begin{enumerate}[label=\alph*.,leftmargin=1.35em]
+    \item Plot using logarithmic values:\\
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.7]{q4_plot.png} 
+        \caption{Comparison of the different algorithms in the middle layout.}
+    \end{figure}
+    \item
+        \begin{itemize}
+            \item A$^*$ is better than DFS in terms of score and expanded nodes.
+            \item A$^*$ is better than BFS in terms of node expanded but is equal to it in terms of score.
+        \end{itemize}
+    \item These observations are due to the fact that:
+        \begin{itemize}
+            \item DFS is not optimal because it is going as deep as possible in the step tree until it finds a step goal which reduces the number of expanded nodes.
+            \item BFS is optimal in this case but not in all because it is exploring the shallowest unexplored node which is not always the optimal, the number of expanded nodes is therefore high.  
+            \item A$^*$ is getting the best score because, has we have seen in the theorical course, this research algorithm is optimal. It is taking into account the possible location of a goal node so his number of expanded nodes is lower than that of the BFS.
+        \end{itemize}
+\end{enumerate}
+
 
 % ==============================================================================
 
 \end{document}
+

@@ -99,6 +99,8 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 INPUT /home/olivier/Documents/Projets/INFO8006/template-project1.aux
@@ -182,6 +184,12 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
+INPUT /home/olivier/Documents/Projets/INFO8006/q3_plot.png
+INPUT /home/olivier/Documents/Projets/INFO8006/q3_plot.png
+INPUT /home/olivier/Documents/Projets/INFO8006/q3_plot.png
+INPUT /home/olivier/Documents/Projets/INFO8006/q4_plot.png
+INPUT /home/olivier/Documents/Projets/INFO8006/q4_plot.png
+INPUT /home/olivier/Documents/Projets/INFO8006/q4_plot.png
 INPUT /home/olivier/Documents/Projets/INFO8006/template-project1.aux
 INPUT /home/olivier/Documents/Projets/INFO8006/template-project1.out
 INPUT /home/olivier/Documents/Projets/INFO8006/template-project1.out
