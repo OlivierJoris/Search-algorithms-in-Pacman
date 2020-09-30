@@ -102,6 +102,7 @@ class PacmanAgent(Agent):
 
         try:
             return self.moves.pop(0)
+            
         except IndexError:
             return Directions.STOP
 
@@ -124,26 +125,25 @@ class PacmanAgent(Agent):
         closed = set()
 
         fringe.push((state, path, 0), 0)
-        # item = (state, path, g(state))
 
         while True:
             if fringe.isEmpty():
                 return [] # error
             
-            item = fringe.pop()[1]
+            state, path, priority = fringe.pop()[1]
 
-            if item[0].isWin():
-                return item[1] # path
+            if state.isWin():
+                return path # path
 
-            key_current_state = key_game_state(item[0])
+            key_current_state = key_game_state(state)
 
             if key_current_state not in closed:
                 closed.add(key_current_state)
 
-                for next_state, action in item[0].generatePacmanSuccessors():
+                for next_state, action in state.generatePacmanSuccessors():
                     if key_game_state(next_state) not in closed:
-                        cost = item[2] + step_cost(item[0], next_state)
+                        cost = priority + step_cost(state, next_state)
                         eval_function = cost + heuristic(next_state)
-                        fringe.update((next_state, item[1] + [action], cost), eval_function)
+                        fringe.update((next_state, path + [action], cost), eval_function)
             
         return path

@@ -66,7 +66,6 @@ class PacmanAgent(Agent):
         closed = set()
 
         fringe.push((state, path, 0), 0)
-        # item = (state, path, g(state))
 
         while True:
             if fringe.isEmpty():
