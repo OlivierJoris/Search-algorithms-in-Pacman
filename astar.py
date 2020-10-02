@@ -4,6 +4,7 @@ from pacman_module.game import Agent
 from pacman_module.pacman import Directions
 from pacman_module.util import PriorityQueue
 
+
 def key_game_state(state):
         """
         Given a pacman game state, returns a key that uniquely identifies a
@@ -19,6 +20,7 @@ def key_game_state(state):
         """
 
         return (state.getPacmanPosition(), state.getFood())
+
 
 def step_cost(state, next_state):
         """
@@ -39,6 +41,7 @@ def step_cost(state, next_state):
 
         return 1 if next_state.getNumFood() < state.getNumFood() else 10
 
+
 def heuristic(state):
         """
         Given a pacman game state, returns the heuristic value for the
@@ -54,7 +57,7 @@ def heuristic(state):
           food dot in the maze.
         """
 
-        if state.getNumFood() == 0: # goal node
+        if state.getNumFood() == 0:  # goal node
             return 0
 
         pacman_position = state.getPacmanPosition()
@@ -64,7 +67,7 @@ def heuristic(state):
 
         for i in range(food_matrix.width):
             for j in range(food_matrix.height):
-                if food_matrix[i][j] == True:
+                if food_matrix[i][j]:
                     distance = abs(pacman_position[0] - i)\
                                + abs(pacman_position[1] - j)
                     if distance > max_distance:
@@ -102,7 +105,7 @@ class PacmanAgent(Agent):
 
         try:
             return self.moves.pop(0)
-            
+
         except IndexError:
             return Directions.STOP
 
@@ -128,12 +131,12 @@ class PacmanAgent(Agent):
 
         while True:
             if fringe.isEmpty():
-                return [] # error
-            
+                return []  # error
+
             state, path, priority = fringe.pop()[1]
 
             if state.isWin():
-                return path # path
+                return path
 
             key_current_state = key_game_state(state)
 
@@ -144,6 +147,9 @@ class PacmanAgent(Agent):
                     if key_game_state(next_state) not in closed:
                         cost = priority + step_cost(state, next_state)
                         eval_function = cost + heuristic(next_state)
-                        fringe.update((next_state, path + [action], cost), eval_function)
-            
+                        fringe.update(
+                            (next_state, path + [action], cost),
+                            eval_function
+                        )
+
         return path
