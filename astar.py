@@ -36,11 +36,16 @@ def step_cost(state, next_state):
         --------
         - The step cost between `state` and `next_state`.
           1 if Pacman goes to a cell with a food dot.
-          10 if Pacman goes to a cell without a food dot.
+          55 if Pacman goes to a cell with a capsule.
+          11 if Pacman goes to a cell without any food dot and capsule.
         """
 
-        return 1 if next_state.getNumFood() < state.getNumFood() else 10
-
+        if next_state.getNumFood() < state.getNumFood():
+            return 1
+        elif len(next_state.getCapsules()) < len(state.getCapsules()):
+            return 55
+        else:
+            return 11
 
 def heuristic(state):
         """
@@ -53,8 +58,9 @@ def heuristic(state):
 
         Returns:
         --------
-        - The Manhattan distance between pacman position and the fahrest
-          food dot in the maze.
+        - The product of the Manhattan distance between pacman position and the 
+          fahrest food dot in the maze and the number of remaining food dots 
+          in the maze.
         """
 
         if state.getNumFood() == 0:  # goal node
@@ -73,7 +79,7 @@ def heuristic(state):
                     if distance > max_distance:
                         max_distance = distance
 
-        return max_distance
+        return max_distance * state.getNumFood()
 
 
 class PacmanAgent(Agent):

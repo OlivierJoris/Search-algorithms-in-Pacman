@@ -34,11 +34,11 @@
 \begin{enumerate}[label=\alph*.,leftmargin=1.35em]
     \item
     	\begin{itemize}
-    		\item The initial state is given by the layout of the maze which gives the initial position of Pacman and the initial positions of all the capsules and all the food dots. The possible states are a combination of Pacman position, and the positions of the remaining capsules and food dots.
+    		\item The initial state is given by the layout of the maze which gives the initial position of Pacman and the initial positions of all the capsules (can be ignored ?) and all the food dots. The possible states are a combination of Pacman position, and the positions of the remaining capsules (can be ignored ?) and food dots.
     		\item The legal actions are going north, going south, going west, and going east as long as Pacman does not go through a wall.
     		\item The action taken will have the effect to change Pacman position in the maze (if the action is legal). If the cell on which Pacman arrives contains a food dot, the food dot is eaten and removed from the maze.
     		\item The goal is reached when all the food dots have been eaten.
-    		\item The step cost can be defined as follows: each move of Pacman to a cell without a food dot costs 10 and each move to a cell with a food dot costs 1.
+    		\item The step cost can be defined as follows: each move of Pacman to a cell with a food dot costs 1, each move to a cell with a capsule costs 55, and each move to a cell without any capsule and foot dot cost 11.
     	\end{itemize}
 \end{enumerate}
 
@@ -49,14 +49,14 @@
           This error can be corrected by returning a tuple containing both the current position of Pacman and the position of the food dots in the \texttt{key} function.  
     \item \textbf{{\it Leave empty.}}
     \item The cost function $g(n)$ returns the cost of the path to arrive to the node $n$. This cost is a sum of step costs which are defined at the end of \textit{section 1}.\\
-    The heuristic $h(n)$ is the Manhattan distance between Pacman and the farthest food dot in the maze associated to the game state given by node $n$.\\
-    The optimality is guaranteed if the heuristic $h(n)$ is consistent because we are using the graph search version of A$^*$. The heuristic is consistent because we have: $h(n) \leq c(n,a,n') + h(n')$ with $n$ a node, $n'$ its successor, and $a$ an action allowing to reach $n'$ from $n$. The inequality is verified thanks to $c(n,a,n')$, the step cost between $n$ and $n'$, which is always positive.\\
-    In addition, the Manhattan distance between Pacman and the farthest food dot is always less than or equal to the true cost to a nearest goal.
-    \item If we take $h(n) = 0$ for all $n$, A$^*$ is equivalent to the UCS algorithm.\\
-    This algorithm is complete if all the step costs are greater than 0 which is the case (our step cost will always be 1 or 10).\\
-    Also, UCS is always optimal independently of the cost function (strange - heuristic ?) because it expands the nodes in order of their optimal path cost.
+    The heuristic $h(n)$ is the product of the Manhattan distance between Pacman and the farthest food dot in the maze and the number of remaining food dots associated to the game state given by node $n$.\\
+    The optimality is guaranteed if the heuristic $h(n)$ is consistent because we are using the graph search version of A$^*$. The heuristic is consistent because we have: $h(n) \leq c(n,a,n') + h(n')$ with $n$ a node, $n'$ its successor, and $a$ an action allowing to reach $n'$ from $n$. The inequality is verified thanks to $c(n,a,n')$, the step cost between $n$ and $n'$, which is always positive (\textit{section 1}).\\
+    In addition, the heuristic we have defined is always less than or equal to the true cost to a nearest goal.
+    \item If we take as heuristic $h(n) = 0$ for all $n$, A$^*$ is equivalent to the UCS algorithm.\\
+    This algorithm is complete if all the step costs are greater than 0 which is the case (\textit{section 1}).\\
+    Furthermore, UCS is always optimal independently of the heuristic because it expands the nodes in order of their optimal path cost.
     \item \textbf{{\it Leave empty.}}
-    \item In breath-first search, we want to expand the shallowest node in the fringe first. Using the depth of the node in the search tree as $g(n)$ allows to reach this strategy. So, the value of the heuristic $h(n)$ is no longer required.
+    \item In breath-first search, we want to expand the shallowest node in the fringe first. Using the depth of the node in the search tree as cost function $g(n)$ allows to reach this strategy. So, the value of the heuristic $h(n)$ is no longer required.
 \end{enumerate}
 
 \section{Experiment 1}
@@ -65,10 +65,10 @@
     \item Plot using natural logarithmic values:\\
     \begin{figure}[H]
         \centering
-        \includegraphics[scale=0.5]{q3_plot.png} 
+        \includegraphics[scale=0.7]{q3_plot.png} 
         \caption{Comparison of A$^*$ algorithm with different heuristics in the middle layout.}
     \end{figure}
-    \item The returned scores are the same with a value of 565. Using our heuristic function, the algorithm expanded 11674 nodes. While using $h(n)=0$, the algorithm expanded 12560 nodes.
+    \item The returned scores are the same with a value of 568. Using our heuristic function, the algorithm expanded 8945 nodes. While using $h(n)=0$, the algorithm expanded 12983 nodes.
     \item The version using $h(n) = 0$ expands more nodes because using $h(n) = 0$ is equivalent of using an uninformed search algorithm which does not take into account the possible location of a goal node.
     \item A$^*$ with $h(n) = 0$ for all $n$ corresponds to the uniformed-cost search algorithm.
 \end{enumerate}
@@ -84,14 +84,14 @@
     \end{figure}
     \item
         \begin{itemize}
-            \item A$^*$ is better than DFS in terms of score and expanded nodes. (A* is better than DFS in terms of score but worst when it came to the number of expanded nodes?)
-            \item A$^*$ is better than BFS in terms of node expanded but is equal to it in terms of score.
+            \item A$^*$ is better than DFS in terms of score but worst when it came to the number of expanded nodes.
+            \item A$^*$ is better than BFS in terms of node expanded and score.
         \end{itemize}
     \item These observations are due to the fact that:
         \begin{itemize}
-            \item DFS is not optimal because it is going as deep as possible in the search tree until it finds a step goal which reduces the number of expanded nodes.
-            \item BFS is optimal in this case but not in all cases because it is exploring the shallowest unexplored node which is not always the optimal one. Therefore, the number of expanded nodes is high.
-            \item A$^*$ is getting the best score because, as we have seen in the theoretical course, this search algorithm is optimal. It is taking into account the possible location of a goal node so its number of expanded nodes is lower than the one for BFS.
+            \item DFS is not optimal because it is going as deep as possible in the search tree until it finds a step goal which is not often the optimal but it reduces the number of expanded nodes.
+            \item BFS is not optimal because it is exploring the shallowest unexplored node until it finds a step goal which is not always the optimal one. Therefore, the number of expanded nodes is high.
+            \item A$^*$ is getting the best score because, as we have seen in the theoretical course, this search algorithm is optimal thanks to taking into account the cost function and the heuristic. It is taking into account the optimal path cost and the possible location of a goal node so its score is lower than the one for BFS and DFS and its number of nodes expanded is lower than the one for BFS.
         \end{itemize}
 \end{enumerate}
 

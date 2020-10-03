@@ -1,4 +1,4 @@
-astar <- c(log(565), log(11674))
+astar <- c(log(568), log(11674))
 bfs <- c(log(565), log(16688))
 dfs <- c(log(409), log(361))
 

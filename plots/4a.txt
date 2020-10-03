@@ -1,3 +1,3 @@
-A* - score :  565 - nodes : 11674
+A* - score :  568 - nodes : 8945
 DFS - score : 409 - nodes : 361
 BFS - score : 565 - nodes : 16688

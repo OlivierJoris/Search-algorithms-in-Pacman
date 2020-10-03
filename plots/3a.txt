@@ -1,2 +1,2 @@
-A* - medium - own g(n) & h(n): score = 565 - 11674 expanded nodes
-A* - medium - own g(n) & h(n) = 0: score = 565 - 12560 expanded nodes
+A* - medium - own g(n) & h(n): score = 568 - 8945 expanded nodes
+A* - medium - own g(n) & h(n) = 0: score = 568 - 12983 expanded nodes

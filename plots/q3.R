@@ -1,5 +1,5 @@
-own <- c(log(565), log(11674))
-zero <- c(log(565), log(12560))
+own <- c(log(568), log(8945))
+zero <- c(log(568), log(12983))
 
 colors <- c("blue", "green", "blue", "green")
 
