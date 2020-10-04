@@ -47,6 +47,7 @@ def step_cost(state, next_state):
         else:
             return 11
 
+
 def heuristic(state):
         """
         Given a pacman game state, returns the heuristic value for the
@@ -58,8 +59,8 @@ def heuristic(state):
 
         Returns:
         --------
-        - The product of the Manhattan distance between pacman position and the 
-          fahrest food dot in the maze and the number of remaining food dots 
+        - The product of the Manhattan distance between pacman position and the
+          fahrest food dot in the maze and the number of remaining food dots
           in the maze.
         """
 
