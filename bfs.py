@@ -1,4 +1,4 @@
-# Complete this class for all parts of the project
+# Maxime Goffart (20180521) and Olivier Joris (20182113)
 
 from pacman_module.game import Agent
 from pacman_module.pacman import Directions
