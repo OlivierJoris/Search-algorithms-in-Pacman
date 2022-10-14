@@ -1,4 +1,6 @@
-# Project I
+# Search algorithms in Pacman
+
+Search algorithms in the Pacman game made in Python. This project has been realized as part of the *Introduction to artificial intelligence* course given by Gilles Louppe at the University of Liège during the 2020-2021 academic year.
 
 ## Table of contents
 
